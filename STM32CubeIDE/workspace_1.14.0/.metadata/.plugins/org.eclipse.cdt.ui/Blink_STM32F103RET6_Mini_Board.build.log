@@ -1,0 +1,10 @@
+19:04:07 **** Incremental Build of configuration Debug for project Blink_STM32F103RET6_Mini_Board ****
+make -j8 all 
+arm-none-eabi-size  Blink_STM32F103RET6_Mini_Board.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8964	    112	   1912	  10988	   2aec	Blink_STM32F103RET6_Mini_Board.elf
+Finished building: default.size.stdout
+ 
+
+19:04:08 Build Finished. 0 errors, 0 warnings. (took 589ms)
+

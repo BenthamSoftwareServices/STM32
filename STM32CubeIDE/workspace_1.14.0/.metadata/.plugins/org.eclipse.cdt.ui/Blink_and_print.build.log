@@ -1,0 +1,10 @@
+17:30:50 **** Incremental Build of configuration Debug for project Blink_and_print ****
+make -j8 all 
+arm-none-eabi-size  Blink_and_print.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9292	    128	   1912	  11332	   2c44	Blink_and_print.elf
+Finished building: default.size.stdout
+ 
+
+17:30:50 Build Finished. 0 errors, 0 warnings. (took 543ms)
+
