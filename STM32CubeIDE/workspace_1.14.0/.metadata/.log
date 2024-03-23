@@ -8501,3 +8501,21 @@ Caused by: java.security.SignatureException: Signature does not match.
 	at java.base/sun.security.x509.X509CertImpl.verify(X509CertImpl.java:390)
 	at org.eclipse.ecf.internal.ssl.ECFTrustManager.verify(ECFTrustManager.java:72)
 	... 40 more
+
+!ENTRY org.eclipse.equinox.p2.touchpoint.natives 2 0 2024-03-23 20:11:46.460
+!MESSAGE Could not remove temporary backup directory (it is safe to manually delete it and its contents): C:\Users\Steven\AppData\Local\Temp\STM32CubeIDE_628fc0ba-602b-4ca0-973d-cf588a1f827c
+!SESSION 2024-03-23 20:12:02.009 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data file:/E:/Users/Steven/Documents/GitHub/STM32/STM32CubeIDE/workspace_1.14.0/
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-23 20:12:21.890
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-23 20:12:21.891
+!MESSAGE Log4j2 initialized with config file E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace_1.14.0\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-23 20:12:45.513
+!MESSAGE Started RMI Server, listening on port 41337

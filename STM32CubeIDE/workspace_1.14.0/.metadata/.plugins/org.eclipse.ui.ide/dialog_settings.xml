@@ -17,6 +17,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace_1.14.0"/>
 			<item value="E:\Users\Steven\Documents\GitHub\STM32_old\STM32CubeIDE\workspace_1.14.0\Nucleo_F411RE_faulty\Blink_LED_Nucleo-F411RE_faulty"/>
 			<item value="E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace_1.14.0\STM32F103C8T6\STM32F103C8T6_blink_print_flash_size_unique_device_ID"/>
 			<item value="E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace_1.14.0\STM32F103RET6_Mini_Board\STM32F103RET6_Mini_Board_blink"/>
