@@ -1,0 +1,16 @@
+10:51:35 **** Incremental Build of configuration Debug for project LCD_16x2_I2C_STM32F103C8 ****
+make -j8 all 
+arm-none-eabi-gcc -o "LCD_16x2_I2C_STM32F103C8.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\STM32F103C8T6\LCD_16x2_I2C_STM32F103C8\STM32CubeIDE\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD_16x2_I2C_STM32F103C8.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD_16x2_I2C_STM32F103C8.elf
+ 
+arm-none-eabi-size  LCD_16x2_I2C_STM32F103C8.elf 
+arm-none-eabi-objdump -h -S LCD_16x2_I2C_STM32F103C8.elf  > "LCD_16x2_I2C_STM32F103C8.list"
+   text	   data	    bss	    dec	    hex	filename
+   5520	     12	   1652	   7184	   1c10	LCD_16x2_I2C_STM32F103C8.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD_16x2_I2C_STM32F103C8.list
+ 
+
+10:51:35 Build Finished. 0 errors, 0 warnings. (took 590ms)
+

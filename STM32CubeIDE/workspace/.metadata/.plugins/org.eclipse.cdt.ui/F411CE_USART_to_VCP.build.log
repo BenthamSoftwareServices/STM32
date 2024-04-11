@@ -1,0 +1,10 @@
+10:49:57 **** Incremental Build of configuration Debug for project F411CE_USART_to_VCP ****
+make -j8 all 
+arm-none-eabi-size  F411CE_USART_to_VCP.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12000	    100	   1964	  14064	   36f0	F411CE_USART_to_VCP.elf
+Finished building: default.size.stdout
+ 
+
+10:49:57 Build Finished. 0 errors, 0 warnings. (took 317ms)
+

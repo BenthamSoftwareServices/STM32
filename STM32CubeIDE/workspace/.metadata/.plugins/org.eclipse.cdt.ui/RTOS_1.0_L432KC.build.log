@@ -1,0 +1,10 @@
+11:45:36 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21508	     96	   6136	  27740	   6c5c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+
+11:45:36 Build Finished. 0 errors, 0 warnings. (took 435ms)
+

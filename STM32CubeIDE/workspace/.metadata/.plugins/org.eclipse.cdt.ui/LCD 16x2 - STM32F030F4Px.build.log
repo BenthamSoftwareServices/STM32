@@ -1,0 +1,16 @@
+10:53:15 **** Incremental Build of configuration Debug for project LCD 16x2 - STM32F030F4Px ****
+make -j8 all 
+arm-none-eabi-gcc -o "LCD 16x2 - STM32F030F4Px.elf" @"objects.list"   -mcpu=cortex-m0 -T"E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\STM32F030\LCD 16x2 - STM32F030F4Px\STM32F030F4PX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD 16x2 - STM32F030F4Px.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD 16x2 - STM32F030F4Px.elf
+ 
+arm-none-eabi-size  LCD\ 16x2\ -\ STM32F030F4Px.elf 
+arm-none-eabi-objdump -h -S LCD\ 16x2\ -\ STM32F030F4Px.elf  > "LCD 16x2 - STM32F030F4Px.list"
+   text	   data	    bss	    dec	    hex	filename
+   8520	     12	   1668	  10200	   27d8	LCD 16x2 - STM32F030F4Px.elf
+Finished building: default.size.stdout
+ 
+Finished building: LCD 16x2 - STM32F030F4Px.list
+ 
+
+10:53:15 Build Finished. 0 errors, 0 warnings. (took 575ms)
+
