@@ -10033,3 +10033,39 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-11 09:45:05.581
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-04-11 18:23:03.962 -----------------------------------------------
+eclipse.buildId=Version 1.15.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-04-11 18:23:10.814
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-04-11 18:23:10.829
+!MESSAGE Log4j2 initialized with config file E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-11 18:23:30.686
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-04-12 10:06:19.537 -----------------------------------------------
+eclipse.buildId=Version 1.15.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-04-12 10:06:26.031
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-04-12 10:06:26.046
+!MESSAGE Log4j2 initialized with config file E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-12 10:06:45.477
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-04-12 10:20:13.708
+!MESSAGE Indexed 'L476RG delete me' (21 sources, 80 headers) in 3.13 sec: 4,835 declarations; 22,889 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0072%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-04-12 10:35:52.240
+!MESSAGE Indexed 'L476RG delete me xxxxxxxxxxxxxxxxxxxx' (21 sources, 80 headers) in 2.17 sec: 4,835 declarations; 22,889 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0072%)

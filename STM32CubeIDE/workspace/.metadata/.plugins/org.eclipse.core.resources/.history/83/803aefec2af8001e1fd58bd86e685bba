@@ -32,10 +32,13 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define PORTA GPIOA
-#define PORTB GPIOB
-#define LED_Red  GPIO_PIN_1
-#define LED_Green  GPIO_PIN_3
+#define PORTA GPIOA //port for A1
+#define PORTB GPIOB //port for on-board green LED
+#define LED_Red  GPIO_PIN_1 //pin A1 on board
+#define LED_Green  GPIO_PIN_3 //pin for on-board green LED
+
+#define strlen
+#define sprintf
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -49,7 +52,7 @@ UART_HandleTypeDef huart2;
 osThreadId defaultTaskHandle;
 osThreadId Task2Handle;
 /* USER CODE BEGIN PV */
-int count = 0;
+uint32_t number = 0; // Example numeric data.  This is an unsigned integer type with exactly 32 bits. It can hold values ranging from 0 to 2^32 - 1.
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -66,13 +69,31 @@ void Task2_init(void const *argument);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void send_deftask(void) {
-	uint8_t data[] = "Hello from DEFTASK";
-	HAL_UART_Transmit(&huart2, data, sizeof(data), 500);
+//this is a user created function to transmit various data via UART2.
+//For more info see: https://www.youtube.com/watch?v=muOL9SH0p9g&list=PLHKFc6z2OwJGDfYYkfi9POKa7SXEPs6Yn&index=3
 
+	/*The standard method to transmit a text string via a UART is the following, but a NULL character is always added automatically
+	 uint8_t data[] = "Hello from DEFTASK";
+	 HAL_UART_Transmit(&huart2, data, sizeof(data), 500);
 
+	 Another method to prevent the string literal from ending with a null character is by using a pointer to uint8_t instead of an array.
+	 You can initialize the pointer to point to the string literal directly. Here's how you can do it:
 
-	//data1[] = 5;
-	//HAL_UART_Transmit(&huart2, data1, sizeof(data), 500);
+	 In this method:
+
+	 The uint8_t *data pointer is initialised directly to the string literal "Hello from DEFTASK\r\n".
+	 strlen((const char *)data) is used to determine the length of the string, excluding the null terminator, and this length is passed to HAL_UART_Transmit.
+	 This method avoids the need to explicitly specify the size of an array and ensures that only the characters of the string literal are transmitted without the null terminator.
+	 */
+
+	const uint8_t *data = (const uint8_t*) "Hello from DEFTASK\r\n";
+	HAL_UART_Transmit(&huart2, data, strlen((const char*) data), 500);
+
+	//The following code transmits the value of the variable number via the UART
+	char buffer[20]; // buffer is an array of characters to hold the string representation of the number
+	sprintf(buffer, "%lu\r\n" number); // Convert number to string and stores in the array called buffer
+	HAL_UART_Transmit(&huart2, (uint8_t*) buffer, strlen(buffer),
+	HAL_MAX_DELAY); // Transmit the string via UART
 }
 /* USER CODE END 0 */
 
@@ -83,7 +104,10 @@ void send_deftask(void) {
 int main(void) {
 
 	/* USER CODE BEGIN 1 */
-
+	/* This project is an example of using FreeRTOS and creates two tasks i.e. Default & Task2
+	 * Default task flashes a red LED on pin A1, transmits data via UART2 using the function send_deftask() and also increments a variable i.e. number
+	 * Task2 flashes the on-board green LED
+	 */
 	/* USER CODE END 1 */
 
 	/* MCU Configuration--------------------------------------------------------*/
@@ -287,13 +311,13 @@ void StartDefaultTask(void const *argument) {
 	/* USER CODE BEGIN 5 */
 	/* Infinite loop */
 	for (;;) {
-
 		HAL_GPIO_TogglePin(PORTA, LED_Red);
 		osDelay(300); //better than HAL_Delay(500)when using RTOS
 		HAL_GPIO_TogglePin(PORTA, LED_Red);
 		osDelay(700); //better than HAL_Delay(1000) when using RTOS
 
-		send_deftask();
+		send_deftask(); //call function to transmit text and numeric data
+		number++; //increment the variable i.e. number
 	}
 	/* USER CODE END 5 */
 }
@@ -319,7 +343,7 @@ void Task2_init(void const *argument) {
 
 /**
  * @brief  Period elapsed callback in non blocking mode
- * @note   This function is called  when TIM1 interrupt took place, inside
+ * @note   This function is called  when TIM6 interrupt took place, inside
  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
  * a global variable "uwTick" used as application time base.
  * @param  htim : TIM handle
@@ -327,9 +351,9 @@ void Task2_init(void const *argument) {
  */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	/* USER CODE BEGIN Callback 0 */
-
+// Timer 6 (TIM6) is one of two basic timers in the L432 MCU, the other is Timer 7 for the HAL TIMEBASE SOURCE rather than SysTick which is very busy being used for HAL_Delay() etc.
 	/* USER CODE END Callback 0 */
-	if (htim->Instance == TIM1) {
+	if (htim->Instance == TIM6) {
 		HAL_IncTick();
 	}
 	/* USER CODE BEGIN Callback 1 */

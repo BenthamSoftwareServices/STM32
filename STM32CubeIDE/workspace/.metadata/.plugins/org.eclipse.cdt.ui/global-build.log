@@ -2369,3 +2369,358 @@ arm-none-eabi-size  RTOS_1.0_L432KC.elf
   21508	     96	   6136	  27740	   6c5c	RTOS_1.0_L432KC.elf
 Finished building: default.size.stdout
  
+18:31:21 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_timebase_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_hal_timebase_tim.d" -MT"Core/Src/stm32l4xx_hal_timebase_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_timebase_tim.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_it.d" -MT"Core/Src/stm32l4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_it.o"
+../Core/Src/main.c: In function 'send_deftask':
+../Core/Src/main.c:87:42: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   87 |         HAL_UART_Transmit(&huart2, data, strlen((const char*) data), 500);
+      |                                          ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:87:42: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+   87 |         HAL_UART_Transmit(&huart2, data, strlen((const char*) data), 500);
+      |                                          ^~~~~~
+../Core/Src/main.c:87:42: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:91:9: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   91 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |         ^~~~~~~
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:91:9: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+   91 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |         ^~~~~~~
+../Core/Src/main.c:91:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+arm-none-eabi-gcc -o "RTOS_1.0_L432KC.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\RTOS_1.0_L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS_1.0_L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTOS_1.0_L432KC.elf
+ 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+arm-none-eabi-objdump -h -S RTOS_1.0_L432KC.elf  > "RTOS_1.0_L432KC.list"
+   text	   data	    bss	    dec	    hex	filename
+  21524	     96	   6136	  27756	   6c6c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTOS_1.0_L432KC.list
+ 
+18:31:30 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21524	     96	   6136	  27756	   6c6c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+18:31:44 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21524	     96	   6136	  27756	   6c6c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+18:38:06 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'send_deftask':
+../Core/Src/main.c:87:42: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   87 |         HAL_UART_Transmit(&huart2, data, strlen((const char*) data), 500);
+      |                                          ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:87:42: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+   87 |         HAL_UART_Transmit(&huart2, data, strlen((const char*) data), 500);
+      |                                          ^~~~~~
+../Core/Src/main.c:87:42: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:91:9: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   91 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |         ^~~~~~~
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:91:9: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+   91 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |         ^~~~~~~
+../Core/Src/main.c:91:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+arm-none-eabi-gcc -o "RTOS_1.0_L432KC.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\RTOS_1.0_L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS_1.0_L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTOS_1.0_L432KC.elf
+ 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+arm-none-eabi-objdump -h -S RTOS_1.0_L432KC.elf  > "RTOS_1.0_L432KC.list"
+   text	   data	    bss	    dec	    hex	filename
+  21524	     96	   6136	  27756	   6c6c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTOS_1.0_L432KC.list
+ 
+18:38:52 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21524	     96	   6136	  27756	   6c6c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+18:39:27 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'send_deftask':
+../Core/Src/main.c:89:49: warning: passing argument 3 of 'HAL_UART_Transmit' makes integer from pointer without a cast [-Wint-conversion]
+   89 |         HAL_UART_Transmit(&huart2, data, strlen((const char*) data), 500);
+      |                                                ~^~~~~~~~~~~~~~~~~~~
+      |                                                 |
+      |                                                 const char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:95: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'const char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                      ~~~~~~~~~^~~~
+../Core/Src/main.c:93:9: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   93 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |         ^~~~~~~
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:93:9: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+   93 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |         ^~~~~~~
+../Core/Src/main.c:93:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:94:61: warning: passing argument 3 of 'HAL_UART_Transmit' makes integer from pointer without a cast [-Wint-conversion]
+   94 |         HAL_UART_Transmit(&huart2, (uint8_t*) buffer, strlen(buffer),
+      |                                                             ^~~~~~~~
+      |                                                             |
+      |                                                             char *
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:95: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                      ~~~~~~~~~^~~~
+arm-none-eabi-gcc -o "RTOS_1.0_L432KC.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\RTOS_1.0_L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS_1.0_L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTOS_1.0_L432KC.elf
+ 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+arm-none-eabi-objdump -h -S RTOS_1.0_L432KC.elf  > "RTOS_1.0_L432KC.list"
+   text	   data	    bss	    dec	    hex	filename
+  21492	     96	   6136	  27724	   6c4c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTOS_1.0_L432KC.list
+ 
+18:40:22 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'send_deftask':
+../Core/Src/main.c:90:49: warning: passing argument 3 of 'HAL_UART_Transmit' makes integer from pointer without a cast [-Wint-conversion]
+   90 |         HAL_UART_Transmit(&huart2, data, strlen((const char*) data), 500);
+      |                                                ~^~~~~~~~~~~~~~~~~~~
+      |                                                 |
+      |                                                 const char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:95: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'const char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                      ~~~~~~~~~^~~~
+../Core/Src/main.c:94:23: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   94 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |                       ^
+../Core/Src/main.c:94:34: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   94 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |                                  ^
+../Core/Src/main.c:94:16: warning: statement with no effect [-Wunused-value]
+   94 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |                ^
+../Core/Src/main.c:95:61: warning: passing argument 3 of 'HAL_UART_Transmit' makes integer from pointer without a cast [-Wint-conversion]
+   95 |         HAL_UART_Transmit(&huart2, (uint8_t*) buffer, strlen(buffer),
+      |                                                             ^~~~~~~~
+      |                                                             |
+      |                                                             char *
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:95: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                      ~~~~~~~~~^~~~
+arm-none-eabi-gcc -o "RTOS_1.0_L432KC.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\RTOS_1.0_L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS_1.0_L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTOS_1.0_L432KC.elf
+ 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+arm-none-eabi-objdump -h -S RTOS_1.0_L432KC.elf  > "RTOS_1.0_L432KC.list"
+   text	   data	    bss	    dec	    hex	filename
+  19040	     96	   6128	  25264	   62b0	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTOS_1.0_L432KC.list
+ 
+18:41:56 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'send_deftask':
+../Core/Src/main.c:90:49: warning: passing argument 3 of 'HAL_UART_Transmit' makes integer from pointer without a cast [-Wint-conversion]
+   90 |         HAL_UART_Transmit(&huart2, data, strlen((const char*) data), 500);
+      |                                                ~^~~~~~~~~~~~~~~~~~~
+      |                                                 |
+      |                                                 const char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:95: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'const char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                      ~~~~~~~~~^~~~
+../Core/Src/main.c:94:23: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   94 |         sprintf(buffer, "%lu\r\n" number); // Convert number to string and stores in the array called buffer
+      |                       ^
+../Core/Src/main.c:94:34: error: expected ')' before 'number'
+   94 |         sprintf(buffer, "%lu\r\n" number); // Convert number to string and stores in the array called buffer
+      |                ~                 ^~~~~~~
+      |                                  )
+../Core/Src/main.c:94:23: warning: statement with no effect [-Wunused-value]
+   94 |         sprintf(buffer, "%lu\r\n" number); // Convert number to string and stores in the array called buffer
+      |                ~~~~~~~^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:95:61: warning: passing argument 3 of 'HAL_UART_Transmit' makes integer from pointer without a cast [-Wint-conversion]
+   95 |         HAL_UART_Transmit(&huart2, (uint8_t*) buffer, strlen(buffer),
+      |                                                             ^~~~~~~~
+      |                                                             |
+      |                                                             char *
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:95: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                      ~~~~~~~~~^~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+18:42:54 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'send_deftask':
+../Core/Src/main.c:90:49: warning: passing argument 3 of 'HAL_UART_Transmit' makes integer from pointer without a cast [-Wint-conversion]
+   90 |         HAL_UART_Transmit(&huart2, data, strlen((const char*) data), 500);
+      |                                                ~^~~~~~~~~~~~~~~~~~~
+      |                                                 |
+      |                                                 const char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:95: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'const char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                      ~~~~~~~~~^~~~
+../Core/Src/main.c:95:23: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   95 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |                       ^
+../Core/Src/main.c:95:34: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   95 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |                                  ^
+../Core/Src/main.c:95:16: warning: statement with no effect [-Wunused-value]
+   95 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |                ^
+../Core/Src/main.c:96:61: warning: passing argument 3 of 'HAL_UART_Transmit' makes integer from pointer without a cast [-Wint-conversion]
+   96 |         HAL_UART_Transmit(&huart2, (uint8_t*) buffer, strlen(buffer),
+      |                                                             ^~~~~~~~
+      |                                                             |
+      |                                                             char *
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:95: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                      ~~~~~~~~~^~~~
+arm-none-eabi-gcc -o "RTOS_1.0_L432KC.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\RTOS_1.0_L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS_1.0_L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTOS_1.0_L432KC.elf
+ 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+arm-none-eabi-objdump -h -S RTOS_1.0_L432KC.elf  > "RTOS_1.0_L432KC.list"
+   text	   data	    bss	    dec	    hex	filename
+  19040	     96	   6128	  25264	   62b0	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTOS_1.0_L432KC.list
+ 
+18:43:20 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'send_deftask':
+../Core/Src/main.c:90:42: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   90 |         HAL_UART_Transmit(&huart2, data, strlen((const char*) data), 500);
+      |                                          ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:90:42: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+   90 |         HAL_UART_Transmit(&huart2, data, strlen((const char*) data), 500);
+      |                                          ^~~~~~
+../Core/Src/main.c:90:42: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:95:9: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   95 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |         ^~~~~~~
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:95:9: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+   95 |         sprintf(buffer, "%lu\r\n", number); // Convert number to string and stores in the array called buffer
+      |         ^~~~~~~
+../Core/Src/main.c:95:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+arm-none-eabi-gcc -o "RTOS_1.0_L432KC.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\RTOS_1.0_L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS_1.0_L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTOS_1.0_L432KC.elf
+ 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+arm-none-eabi-objdump -h -S RTOS_1.0_L432KC.elf  > "RTOS_1.0_L432KC.list"
+   text	   data	    bss	    dec	    hex	filename
+  21524	     96	   6136	  27756	   6c6c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTOS_1.0_L432KC.list
+ 
+18:46:12 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "RTOS_1.0_L432KC.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\RTOS_1.0_L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS_1.0_L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTOS_1.0_L432KC.elf
+ 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+arm-none-eabi-objdump -h -S RTOS_1.0_L432KC.elf  > "RTOS_1.0_L432KC.list"
+   text	   data	    bss	    dec	    hex	filename
+  21524	     96	   6136	  27756	   6c6c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTOS_1.0_L432KC.list
+ 
+18:47:09 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "RTOS_1.0_L432KC.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\RTOS_1.0_L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS_1.0_L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTOS_1.0_L432KC.elf
+ 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+arm-none-eabi-objdump -h -S RTOS_1.0_L432KC.elf  > "RTOS_1.0_L432KC.list"
+   text	   data	    bss	    dec	    hex	filename
+  21524	     96	   6136	  27756	   6c6c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTOS_1.0_L432KC.list
+ 
+18:48:09 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_timebase_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_hal_timebase_tim.d" -MT"Core/Src/stm32l4xx_hal_timebase_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_timebase_tim.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_it.d" -MT"Core/Src/stm32l4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_it.o"
+arm-none-eabi-gcc -o "RTOS_1.0_L432KC.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Users\Steven\Documents\GitHub\STM32\STM32CubeIDE\workspace\RTOS_1.0_L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS_1.0_L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTOS_1.0_L432KC.elf
+ 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+arm-none-eabi-objdump -h -S RTOS_1.0_L432KC.elf  > "RTOS_1.0_L432KC.list"
+   text	   data	    bss	    dec	    hex	filename
+  21524	     96	   6136	  27756	   6c6c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTOS_1.0_L432KC.list
+ 
+18:48:20 **** Incremental Build of configuration Debug for project RTOS_1.0_L432KC ****
+make -j8 all 
+arm-none-eabi-size  RTOS_1.0_L432KC.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21524	     96	   6136	  27756	   6c6c	RTOS_1.0_L432KC.elf
+Finished building: default.size.stdout
+ 
