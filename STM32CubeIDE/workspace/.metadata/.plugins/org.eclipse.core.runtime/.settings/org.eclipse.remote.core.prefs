@@ -1,6 +1,0 @@
-connections/org.eclipse.remote.serial.core.connectionType/STLink+V3+Minie/serial.baudRate=6
-connections/org.eclipse.remote.serial.core.connectionType/STLink+V3+Minie/serial.byteSize=3
-connections/org.eclipse.remote.serial.core.connectionType/STLink+V3+Minie/serial.parity=0
-connections/org.eclipse.remote.serial.core.connectionType/STLink+V3+Minie/serial.portName=COM100
-connections/org.eclipse.remote.serial.core.connectionType/STLink+V3+Minie/serial.stopBits=0
-eclipse.preferences.version=1
