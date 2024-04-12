@@ -22,8 +22,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <string.h>
-#include <stdio.h>
+#include <string.h> //https://www.tutorialspoint.com/c_standard_library/string_h.htm
+#include <stdio.h> //https://www.tutorialspoint.com/c_standard_library/stdio_h.htm
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
