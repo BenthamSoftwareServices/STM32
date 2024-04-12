@@ -335,9 +335,9 @@ void Task1_init(void const *argument) {
 	/* Infinite loop */
 	for (;;) {
 		HAL_GPIO_TogglePin(PORTA, LED_Red);
-		osDelay(300); //better than HAL_Delay(500)when using RTOS
+		osDelay(100); //better than HAL_Delay(500)when using RTOS
 		HAL_GPIO_TogglePin(PORTA, LED_Red);
-		osDelay(700); //better than HAL_Delay(1000) when using RTOS
+		osDelay(300); //better than HAL_Delay(1000) when using RTOS
 
 		send_Task1(); //call function to transmit text and numeric data
 		number++; //increment the variable i.e. number
