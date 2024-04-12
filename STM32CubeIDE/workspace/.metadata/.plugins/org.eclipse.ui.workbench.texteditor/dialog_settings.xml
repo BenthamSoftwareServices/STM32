@@ -6,8 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="TIM6"/>
+		<item key="selection" value="osThread"/>
 		<list key="findhistory">
+			<item value="osThread"/>
+			<item value="osThreadAttr_t"/>
+			<item value="osThreadAttr"/>
 			<item value="TIM6"/>
 		</list>
 		<list key="replacehistory">
