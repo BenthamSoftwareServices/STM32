@@ -22,3 +22,4 @@ strlen
 const
 sizeof
 htim
+pinout
