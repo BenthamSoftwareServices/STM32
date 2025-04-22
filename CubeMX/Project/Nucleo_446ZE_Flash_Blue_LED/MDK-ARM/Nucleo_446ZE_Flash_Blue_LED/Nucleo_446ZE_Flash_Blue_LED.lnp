@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp.sp
+"nucleo_446ze_flash_blue_led\startup_stm32f446xx.o"
+"nucleo_446ze_flash_blue_led\main.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_it.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_msp.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_pcd.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_pcd_ex.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_ll_usb.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_rcc.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_rcc_ex.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_flash.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_flash_ex.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_flash_ramfunc.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_gpio.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_dma_ex.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_dma.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_pwr.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_pwr_ex.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_cortex.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal.o"
+"nucleo_446ze_flash_blue_led\stm32f4xx_hal_exti.o"
+"nucleo_446ze_flash_blue_led\system_stm32f4xx.o"
+--strict --scatter "Nucleo_446ZE_Flash_Blue_LED\Nucleo_446ZE_Flash_Blue_LED.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Nucleo_446ZE_Flash_Blue_LED.map" -o Nucleo_446ZE_Flash_Blue_LED\Nucleo_446ZE_Flash_Blue_LED.axf
