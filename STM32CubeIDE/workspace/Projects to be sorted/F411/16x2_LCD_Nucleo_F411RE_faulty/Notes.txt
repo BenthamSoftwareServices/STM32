@@ -1,0 +1,2 @@
+Format main.c using Ctrl Shift F
+
