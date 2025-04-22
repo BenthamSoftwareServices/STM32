@@ -1,0 +1,6 @@
+../Custom/Src/uart_control.c:26:6:UART_Init	1
+../Custom/Src/uart_control.c:37:6:print_message	1
+../Custom/Src/uart_control.c:46:6:UART_PrintWelcomeMessage	1
+../Custom/Src/uart_control.c:64:6:UART_PrintLEDStatus	2
+../Custom/Src/uart_control.c:76:6:UART_PrintSystemInfo	1
+../Custom/Src/uart_control.c:87:5:__io_putchar	1
