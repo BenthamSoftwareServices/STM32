@@ -276,8 +276,8 @@ static void MX_USART2_UART_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-/* USER CODE BEGIN MX_GPIO_Init_1 */
-/* USER CODE END MX_GPIO_Init_1 */
+  /* USER CODE BEGIN MX_GPIO_Init_1 */
+  /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -304,8 +304,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD3_GPIO_Port, &GPIO_InitStruct);
 
-/* USER CODE BEGIN MX_GPIO_Init_2 */
-/* USER CODE END MX_GPIO_Init_2 */
+  /* USER CODE BEGIN MX_GPIO_Init_2 */
+  /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
@@ -340,14 +340,12 @@ void StartDefaultTask(void const * argument)
 void Task1_init(void const * argument)
 {
   /* USER CODE BEGIN Task1_init */
-	//Flash Red LED and transmit text and number via UART2
+	//Transmit text and number via UART2
 	/* Infinite loop */
 	for (;;) {
-		HAL_GPIO_TogglePin(PORTA, LED_Red);
-		osDelay(50); //better than HAL_Delay(500)when using RTOS
-		HAL_GPIO_TogglePin(PORTA, LED_Red);
-		osDelay(100); //better than HAL_Delay(1000) when using RTOS
-
+		HAL_GPIO_TogglePin(PORTA, LED_Red); //This needs an external LED and resistor connected to pin A1 on the Nucleo L432KC module
+		osDelay(1000); //better than HAL_Delay(1000) when using RTOS
+		HAL_GPIO_TogglePin(PORTA, LED_Red); //This needs an external LED and resistor connected to pin A1 on the Nucleo L432KC module
 		send_Task1(); //call function to transmit text and numeric data
 		number++; //increment the variable i.e. number
 
@@ -393,7 +391,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 0 */
 // Timer 6 (TIM6) is one of two basic timers in the L432 MCU, the other is Timer 7 for the HAL TIMEBASE SOURCE rather than SysTick which is very busy being used for HAL_Delay() etc.
   /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM6) {
+  if (htim->Instance == TIM6)
+  {
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
