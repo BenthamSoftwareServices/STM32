@@ -1,0 +1,1 @@
+Cube IDE, any version between 14 and 18 generates a workspace called workspace_1.14.0; I don't choose to use this and instead use just workspace.
