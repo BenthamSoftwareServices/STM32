@@ -128,7 +128,7 @@ int main(void) {
 	HD44780_Clear();
 	HD44780_SetCursor(0, 0);
 	HD44780_PrintStr("Learning STM32 with LCD is fun :-)");
-	//int x;
+
 	for (int x = 0; x < 40; x = x + 1) {
 		HD44780_ScrollDisplayLeft();  //HD44780_ScrollDisplayRight();
 		HAL_Delay(500);
@@ -136,7 +136,6 @@ int main(void) {
 
 	char snum[5];
 	for (int x = 1; x <= 200; x++) {
-		// itoa(x, snum, 10);
 		snprintf(snum, sizeof(snum), "%d", x);
 		HD44780_Clear();
 		HD44780_SetCursor(0, 0);
