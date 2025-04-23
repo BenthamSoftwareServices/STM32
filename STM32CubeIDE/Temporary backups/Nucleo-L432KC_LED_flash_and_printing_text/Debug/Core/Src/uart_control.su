@@ -1,6 +1,0 @@
-../Core/Src/uart_control.c:26:6:UART_Init	16	static
-../Core/Src/uart_control.c:37:6:print_message	16	static
-../Core/Src/uart_control.c:46:6:UART_PrintWelcomeMessage	8	static
-../Core/Src/uart_control.c:64:6:UART_PrintLEDStatus	16	static
-../Core/Src/uart_control.c:76:6:UART_PrintSystemInfo	8	static
-../Core/Src/uart_control.c:87:5:__io_putchar	16	static

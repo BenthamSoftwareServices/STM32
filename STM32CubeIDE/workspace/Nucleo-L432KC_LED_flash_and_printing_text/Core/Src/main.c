@@ -17,7 +17,13 @@
  */
 
 /**
- * This project includes .h and .c library files for driving the onboard green LED, sending text to the ST-Link VCP and sending text to a 1602 LCD
+ * This project includes .h and .c library files for driving the onboard green LED, sending text to the ST-Link VCP via USART
+ * and sending text to a 1602 LCD using a library, liquidcrystal_i2c, created by eziya based on the Arduino Liquid Crystal I2C Library.
+ * Several parts of this project have been moved to separate h & c files to create modularisation, including:
+ * lcd_counter		displays the value of a variable called counter
+ * lcd_display		executes a demonstration highlighting the functions available in liquidcrystal_i2c
+ * led_control		manipulates the state of the on-board green LED
+ * uart_control		includes several functions to transmit data via a USART to the VCP on the embedded ST-Link
  */
 
 /* USER CODE END Header */
@@ -30,7 +36,9 @@
 #include <string.h>
 #include "led_control.h"
 #include "uart_control.h"
-#include "i2c-lcd.h"
+#include "liquidcrystal_i2c.h"
+#include "lcd_display.h"
+#include "lcd_counter.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,6 +63,7 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 uint32_t counter = 0;
+uint32_t x = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -68,8 +77,7 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-int row = 0;
-int col = 0;
+
 /* USER CODE END 0 */
 
 /**
@@ -104,17 +112,13 @@ int main(void)
   MX_USART2_UART_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+	// Call UART_PrintWelcomeMessage to send initial text to LCD
 	HAL_Delay(1000);
 	UART_PrintWelcomeMessage(); //Code is in uart_control.c
 	HAL_Delay(500);
 
-	// Display Strings to LCD
-	lcd_init(); // Initialise the LCD
-	lcd_put_cur(0, 0); // Move the cursor to the first column in the first row
-	lcd_send_string("HELLO WORLD"); //Call the function lcd_send_string, in i2c-lcd.c, to send the text to the LCD via I2C
-	lcd_put_cur(1, 0); // Move the cursor to the first column in the second row
-	lcd_send_string("from Steve"); //Call the function lcd_send_string, in i2c-lcd.c, to send the text to the LCD via I2C
-
+	// Initialize LCD and run display demo
+	LCD_DisplayDemo(); // Call the function from lcd_display.c to avoid filling main.c with all the code
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -128,11 +132,7 @@ int main(void)
 		HAL_Delay(100);
 
 		// Display counter value on LCD
-		char numChar[5]; // Create an array called numChar that can hold 5 characters
-		sprintf(numChar, "%ld", counter); //string print formatted the value of counter to numChar using long int format
-		lcd_put_cur(1, 11); // Move the cursor to column 12 on the second row of the LCD
-		lcd_send_string(numChar); // Call the function lcd_send_string, in i2c-lcd.c, to send the content of the numChar array to the LCD via I2C
-
+		LCD_DisplayCounter(counter, 11, 1); // Call LCD_DisplayCounter function in lcd_counter.c and pass parameters
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

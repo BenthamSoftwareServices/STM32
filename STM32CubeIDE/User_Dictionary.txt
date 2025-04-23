@@ -57,3 +57,5 @@ scrolldisplayright
 itoa
 setcursor
 printstr
+arduino
+eziya
